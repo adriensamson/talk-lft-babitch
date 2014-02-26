@@ -38,8 +38,145 @@
 
                 <section>
                     <h1>Babitch</h1>
+                    <h3>Une appli pour les matchs de babyfoot</h3>
                 </section>
 
+                <section>
+                    <section>
+                        <h2>Pourquoi ?</h2>
+                        <ul>
+                            <li>Enregistrer les scores des matchs</li>
+                            <li>Pouvoir faire des stats</li>
+                            <li>S'amuser sur un side-project</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Comment ?</h2>
+                        <p>Une API REST pour enregistrer et restituer les données</p>
+                        <p>Une application web responsive pour saisir les données et afficher les stats</p>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Une API REST</h2>
+                        <ul>
+                            <li>comme on en fait tous les jours <em>(chez les Cytrons)</em></li>
+                            <li>en Symfony2</li>
+                            <li>avec FOSRestBundle, JMSSerializerBundle et NelmioApiDocBundle</li>
+                            <li>stockage en BDD SQL (avec Doctrine)</li>
+                            <li>tests fonctionnels avec Behat</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <img src="images/apidoc.png" />
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Un joueur
+                            ```json
+                            {
+                                "name": "Adrien",
+                                "email": "adrien@example.com",
+                                "_links": {
+                                    "self": {
+                                        "href": "http://api.babitch.example.com/v1/players/1"
+                                    }
+                                }
+                            }
+                            ```
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Un match
+                            ```json
+                            {
+                                "blue_score": 10,
+                                "red_score": 9,
+                                "composition": [
+                                     { "...": "..." }
+                                ],
+                                "goals": [
+                                    { "...": "..." }
+                                ],
+                                "_links": {
+                                    "self": {
+                                        "href": "http://api.babitch.example.com/v1/games/1"
+                                    }
+                                }
+                            }
+                            ```
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Un joueur dans la compo
+                            ```json
+                            {
+                                "player_id": 1,
+                                "team": "blue",
+                                "position": "defense",
+                                "_links": {
+                                    "player": {
+                                        "href": "http://api.babitch.example.com/v1/players/1"
+                                    }
+                                }
+                            }
+                            ```
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Un but
+                            ```json
+                            {
+                                "player_id": 1,
+                                "conceder_id": 1,
+                                "position": "defense",
+                                "autogoal": true
+                            }
+                            ```
+                        </script>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Une application web</h2>
+                        <ul>
+                            <li>Angular</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Le futur proche</h2>
+                        <ul>
+                            <li>Timestamps début/fin de match et à chaque but <em>(en cours)</em></li>
+                            <li>Création/modificaton des joueurs dans l'appli</li>
+                            <li>Composition à chaque but</li>
+                            <li>Nettoyage et HATEOAS poussé de l'API</li>
+                            <li>Des stats qui prennent en compte les différences de niveau</li>
+                            <li>D'autres idées ?</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Contribuer</h2>
+                        <ul>
+                            <li><a href="https://github.com/M6Web/Babitch/">M6Web/Babitch</a></li>
+                            <li><a href="https://github.com/M6Web/BabitchClient/">M6Web/BabitchClient</a></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Merci</h2>
+                    </section>
+                </section>
             </div>
 
         </div>
