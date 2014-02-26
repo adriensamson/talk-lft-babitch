@@ -29,7 +29,7 @@
         <![endif]-->
     </head>
 
-    <body>
+    <body ng-app="demo">
 
         <div class="reveal">
 
@@ -39,6 +39,11 @@
                 <section>
                     <h1>Babitch</h1>
                     <h3>Une appli pour les matchs de babyfoot</h3>
+                </section>
+
+                <section>
+                    <h2>Stack technique</h2>
+                    <img src="images/stack.jpg" />
                 </section>
 
                 <section>
@@ -58,6 +63,7 @@
                     </section>
                 </section>
 
+                <!-- API -->
                 <section>
                     <section>
                         <h2>Une API REST</h2>
@@ -145,16 +151,148 @@
                     </section>
                 </section>
 
+                <!-- FRONT -->
                 <section>
                     <section>
-                        <h2>Une application web</h2>
+                        <h2>Le FRONT</h2>
+                    </section>
+                    <section>
+                        <h2>Une vue Match</h2>
+                        <img src="images/game.png" />
+                    </section>
+                    <section>
+                        <h2>Une vue Live</h2>
+                        <img src="images/live.png" />
+                    </section>
+                     <section>
+                        <h2>Une partie Stats</h2>
+                        <img src="images/live.png" />
+                    </section>
+                    <!-- Prévoir démo -->
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Techniquement ? </h2>
+                    </section>
+                    <section>
+                        <h2>Angular JS</h2>
                         <ul>
-                            <li>Angular</li>
+                            <li>Framework MVVM</li>
+                            <li>Databinding costaud</li>
+                            <li>Webcomponents</li>
+                            <li>Injection de dépendance \o/</li>
                         </ul>
+                    </section>
+                    <section>
+                        <h2>Databinding</h2>
+                        <div>
+                            <h3>Hello {{ name }}</h3>
+                            <input type="text" style="font-size:1em;" ng-model="name" />
+                        </div>
+                        <div data-markdown>
+                            <script type="text/template">
+                                ```html
+                                <div ng-app="demo">
+                                    <h3>Hello {{ name }}</h3>
+                                    <input type="text" ng-model="name" />
+                                </div>
+                                ```
+                            </script>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Controller</h2>
+                        <div ng-controller='CounterCtrl'>
+                            <h3>Click : {{ count }}</h3>
+                            <button style="font-size:1em;" ng-click="increment()">click !</button>
+                        </div>
+                        <div data-markdown>
+                            <script type="text/template">
+                                ```html
+                                <div ng-controller='CounterCtrl'>
+                                    <h3>Click : {{ count }}</h3>
+                                    <button ng-click="increment()">click !</button>
+                                </div>
+                                ```
+                                ```javascript
+                                angular.module('demo', [])
+                                    .controller('CounterCtrl', ['$scope', function($scope) {
+                                        $scope.count = 0;
+                                        $scope.increment = function() {
+                                            $scope.count++;
+                                        };
+                                    }]);
+                                ```
+                            </script>
+                        </div>
                     </section>
                 </section>
 
                 <section>
+                    <section>
+                        <h2>Faye</h2>
+                        <ul>
+                            <li>pub/sub temps réel</li>
+                            <li>Serveur node ou ruby</li>
+                            <li>Simple a mettre en place</li>
+                            <li>Scalable et utilisé en production sur de grosses applications</li>
+                        </ul>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Serveur (Nodejs)
+                            ```javascript
+                            var http = require('http'),
+                            faye = require('faye');
+
+                            var httpServer = http.createServer(),
+                            fayeServer = new faye.NodeAdapter({mount: '/faye', timeout: 45});
+
+                            fayeServer.attach(httpServer);
+                            server.listen(8000);
+                            ```
+                        </script>
+                    </section>
+
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Client
+                            ```javascript
+                            var client = new Faye.Client('http://localhost:8000/faye');
+
+                            // Envoi d'un message
+                            client.publish('/home-channel', {text: 'Hi there'});
+
+                            // Réception d'un message
+                            client.subscribe('/home-channel', function(message) {
+                                console.log(message);
+                            });
+                            ```
+                        </script>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Tests</h2>
+                        <ul>
+                            <li>Unitaire Jasmine + Karma</li>
+                            <li>Fonctionnel Protractor</li>
+                            <li>Tous les appels au backends sont mocker.</li>
+                        </ul>
+                        <!-- Voir si timing pour plus détails -->
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Bilan</h2>
+                        <ul>
+                            <li>les librairies *.js pas forcément très stable</li>
+                            <li>Des specs simple -> un produit utilisable rapidement</li>
+                        </ul>
+                    </section>
                     <section>
                         <h2>Le futur proche</h2>
                         <ul>
@@ -211,6 +349,15 @@
             });
 
         </script>
-
+        <script src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript">
+            angular.module('demo', [])
+                .controller('CounterCtrl', ['$scope', function($scope) {
+                    $scope.count = 0;
+                    $scope.increment = function() {
+                        $scope.count++;
+                    };
+                }]);
+        </script>
     </body>
 </html>

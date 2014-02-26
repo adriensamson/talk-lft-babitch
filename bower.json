@@ -1,0 +1,13 @@
+{
+  "name": "talk-lft-babitch",
+  "version": "0.0.0",
+  "homepage": "https://github.com/adriensamson/talk-lft-babitch",
+  "authors": [
+    "Nicolas Chaulet <n.chaulet@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.2.13"
+  }
+}
