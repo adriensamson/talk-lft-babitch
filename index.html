@@ -23,6 +23,9 @@
         <script>
             document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
         </script>
+        <style>
+            .reveal section img {border:none;box-shadow:none; background:none;}
+        </style>
 
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
@@ -190,7 +193,7 @@
                     </section>
                      <section>
                         <h2>Une partie Stats</h2>
-                        <img src="images/live.png" />
+                        <img src="images/stats.png" />
                     </section>
                     <!-- Prévoir démo -->
                 </section>
@@ -201,7 +204,9 @@
 
                 <section>
                     <section>
-                        <h2>Angular JS</h2>
+                        <h2 >AngularJS <br/>
+                        <img width="100px" src="http://lauterry.github.io/slides-prez-angular/img/angularjs.png" />
+                        </h2>
                         <ul>
                             <li>Framework MVW</li>
                             <li>Databinding bi-directionnel costaud</li>
@@ -289,13 +294,32 @@
                 <section>
                     <section>
                         <h2>Tests</h2>
-                        <ul>
-                            <li>Unitaire Jasmine + Karma</li>
-                            <li>Fonctionnel Protractor + Webdrivers</li>
-                            <li>Mock de tous les appels au backends(angular httpBackend)</li>
-                        </ul>
-                        <!-- Voir si timing démo -->
                     </section>
+                    <section>
+                        <h2>Tests Unitaire</h2>
+                        <img height="200px" src="http://jasmine.github.io/images/jasmine_vertical.png" />
+                        <br/>
+                        <img height="100px" src="http://karma-runner.github.io/assets/img/banner.png" />
+                        <br/>
+                        <img height="100px" src="http://phantomjs.org/img/phantomjs-logo.png" />
+                        <br/>
+                        <ul>
+                            <li>Jasmine: Framework de tests JS</li>
+                            <li>Karma: Tests Runner</li>
+                            <li>Phantomjs: Browser headless</li>
+                            <li>Mock de tous les appels HTTP (angule $httpBackend)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Tests Fonctionnels</h2>
+                        <ul>
+                            <li>Protractor</li>
+                            <li>Mock de tous les appels au backends(angular httpBackend)</li>
+                            <li>Chromedriver</li>
+                            <li>Saucelabs</li>
+                        </ul>
+                    </section>
+                    <!-- Voir si timing démo -->
                 </section>
 
                 <section>
